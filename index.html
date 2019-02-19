@@ -17,15 +17,34 @@
         message: 'Hello Vue!'
       }
     })
-    
-    
-    new AhaApi({
-      accountDomain: "CUBIC",
-      // Replace this with your client ID.
-      clientId: "18bd068d9751f478147a15203b0aac7b241aa89f0713f0370a287456153ac278", 
-      // Replace this with your redirect URL.
-      redirectUri: "https://grahamfl.github.io/"
-    }).authenticate(function(api, success, message)
   </script>
+  
+  <form id="controls">
+  <input type="text" placeholder="Aha! subdomain" id="subdomain"></input>
+  <input type="text" placeholder="Product key" id="product-key"></input>
+  <input type="submit" class="btn" value="Load features"></input>
+</form>
+
+<script>
+  $("#controls").submit(function() {
+    new AhaApi({
+      accountDomain: $("#subdomain").val(),
+      // Replace this with your client ID.
+      clientId: "b11bbb264c7432421b6abc05fae6bf93f541979b9fb42bbef684ab036487fd5c", 
+      // Replace this with your redirect URL.
+      redirectUri: "http://lvh.me:4567/scorecard.html"
+    }).authenticate(function(api, success, message) {
+      var productKey = $("#product-key").val();
+      
+      // Hide the controls.
+      $("#controls").remove();
+
+      api.get("/products/" + productKey + "/features", {}, function(response) {
+        // Do something with the features.
+      });
+    });
+    return false;
+  });
+</script>
 </body>
 </html>
