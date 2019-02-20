@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
+  <
   <script type="text/javascript" charset="utf-8" src="https://secure.aha.io/assets/javascript_api/aha-api.latest.js"></script>
 </head>
 <body>
-  <div id="app">
-    {{ message }}
-  </div>
-
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    })
-  </script>
+  
   
   <form id="controls">
   <input type="text" placeholder="Aha! subdomain" id="subdomain"></input>
   <input type="text" placeholder="Product key" id="product-key"></input>
   <input type="submit" class="btn" value="Load features"></input>
-</form>
+  </form>
 
 <script>
   $("#controls").submit(function() {
