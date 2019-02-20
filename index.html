@@ -29,13 +29,15 @@
         accountDomain: "cubic",
         clientId: "18bd068d9751f478147a15203b0aac7b241aa89f0713f0370a287456153ac278", // NOTE: replace this with your client ID.
         redirectUri: "https://grahamfl.github.io/"
-      }).authenticate(function(api, success, message) {
+        }).authenticate(function(api, success, message) {
         
-        api.get("/products/", {'id,name'}, function(response) {
-          $("#feature-template").tmpl(response.features).appendTo("#features");
-        });
-      });
-      return false;
-    });
+                          api.get("/products/", {'id,name'}, function(response) {
+                                                                $("#feature-template").tmpl(response.features).appendTo("#features");
+                                                                }
+                                 );
+                          }
+                       );
+        return false;
+   
   </script>
 </body>
